@@ -8,7 +8,7 @@
  * @copyright  2017
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    GIT: 1.0.0
- * @link       http://pear.php.net/package/PackageName
+ * @link       https://github.com/solutionstack/smartloader
  */
 
 
