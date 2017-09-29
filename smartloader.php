@@ -8,7 +8,8 @@
  * @copyright  2017
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    GIT: 1.0.0
- * @link       http://pear.php.net/package/PackageName
+
+ * @link       https://github.com/solutionstack/smartloader 
  */
 
 
@@ -25,9 +26,10 @@ spl_autoload_register(function($class_name) {
     if (\function_exists('apcu_add')) {
 
 
-        if (\apcu_exists($class_name) && \apcu_fetch($class_name)) {
+        if (\apcu_exists($class_name) && file_exists(\apcu_fetch($class_name))) {
 
-            require_once apcu_fetch($class_name);
+
+            require_once \apcu_fetch($class_name);
             return;
         }
     }
@@ -42,7 +44,7 @@ spl_autoload_register(function($class_name) {
 
             //here we remove namespace prefix(es) , leaving only the base class name
             if (\strrpos($class_name, "\\") !== FALSE) {
-                $cur_file = substr($class_name, \strrpos($class_name, "\\") + 1);
+                $cur_file = \substr($class_name, \strrpos($class_name, "\\") + 1);
             } else {
                 $cur_file = $class_name; //else just leace the class name as-is
             }
@@ -64,10 +66,5 @@ spl_autoload_register(function($class_name) {
 
     foreach ($files as $c)
         ; //note the trick, just dummy iterating makes the function (the FilterIterator Above) 
-
-
-
-
-        
-//yeild required file names else the file names never gets generated/included
+	  //yeild required file names else the file names never gets generated/included
 });
