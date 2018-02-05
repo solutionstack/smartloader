@@ -1,0 +1,10 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+
+## [1.0.0a]
+### Removed
+  - Removed the deprecated (unset) cast to be compatible with PHP 7.2
+
+## [1.0.0] [2017/9/29]
+ - Initial stable release
